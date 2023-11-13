@@ -123,7 +123,7 @@ module.exports = {
             {
                 if(spawndata[message.channel.id].cattospawn == 1 )
                 {
-                    if(Name.toLowerCase() == "zwykłykitku" || Name.toLowerCase() == "zwyklykitku")
+                    if(Name.toLowerCase() == "zwykłykitek" || Name.toLowerCase() == "zwyklykitek")
                     {
                         spawndata[message.channel.id].cattospawn = 0;
                         fs.writeFileSync('././././DB/Pumpkin/spawn.json', JSON.stringify(spawndata))

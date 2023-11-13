@@ -21,14 +21,16 @@ client.on('messageCreate', async (message) => {
     let spawndata = JSON.parse(fs.readFileSync('././././DB/Pumpkin/spawn.json'))
     const rndInt = randomIntFromInterval(1, 4)
 
-    let SpawnEmbed = new EmbedBuilder();
-    SpawnEmbed.setTitle(`Pojawił się kitku!`);
-    SpawnEmbed.setDescription(`Zgadnij nazwe kitka i wpisz |catch <nazwa> aby go złapać!`)
+    if(message.channel.id != "1173282707363594334")
+    {
+      let SpawnEmbed = new EmbedBuilder();
+      SpawnEmbed.setTitle(`Pojawił się kitku!`);
+      SpawnEmbed.setDescription(`Zgadnij nazwe kitka i wpisz |catch <nazwa> aby go złapać!`)
 
     if(rndInt == 1)
       {
         SpawnEmbed.setImage(`https://cdn.discordapp.com/attachments/1133049404400599141/1133049500110430400/ZwykyKitku.png`);
-        catname == "ZwyklyKitku";
+        catname == "ZwyklyKitek";
       }
       if(rndInt == 2)
       {
@@ -61,7 +63,9 @@ client.on('messageCreate', async (message) => {
         fs.writeFileSync('././././DB/Pumpkin/spawn.json', JSON.stringify(spawndata))
       }
 
-      counter = 0;
+      counter = 0;  
+    }
+    
 
     }
 });

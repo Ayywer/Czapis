@@ -29,11 +29,11 @@ module.exports = {
             return 
         }
         if(member.id == "1034463864298950736") {
-            message.channel.send(`${message.author.username} pocałował mnie OwO!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
+            message.channel.send(`${message.author.username} przytulił mnie OwO!\nhttps://tenor.com/view/big-hug-gif-26546176639434304`)
             return 
         }
 
-        message.channel.send(`${message.author.username} pocałował ${member}!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
+        message.channel.send(`${message.author.username} przytuluł ${member}!\nhttps://tenor.com/view/big-hug-gif-26546176639434304`)
 
     }
 }

@@ -34,7 +34,7 @@ module.exports = {
             },
             {
               name: ":sunglasses: Generalne :sunglasses:",
-              value: "• Awatar\n• Cat \n• Help\n• Hug\n• Kiss",
+              value: "• Awatar\n• Cat \n• Help\n• Hug\n• Kiss\n •Pytanie",
               inline: false
             },
           )

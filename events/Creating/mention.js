@@ -14,6 +14,17 @@ module.exports = {
 
 client.on("messageCreate", (message) => {
   if (message.mentions.has(client.user.id)) {
+    if (message.author.bot) return;
+    if(message.content.includes('oddawaj') || message.content.includes('dawaj') || message.content.includes('oddaj'))
+    {
+      message.reply("nie spierdalaj")
+      return
+    }
+    if(message.content.includes('hajs'))
+    {
+      message.reply("w dupie żegnam")
+      return
+    }
     const rndInt = randomIntFromInterval(1, 4)
     if(rndInt == 1)
     {
