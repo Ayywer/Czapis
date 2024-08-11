@@ -9,8 +9,9 @@ module.exports = {
         name: "awatar",
     },
     permissions: ["SendMessages",],
-    aliases: ['avatar','av','a','pfp','profile','pp'],
+    aliases: [],
     owner: false,
+    requestaccount: false,
     run: async (client, message, args, prefix, config,) => {
         const inputMember = args[0];
         const member = message.mentions.members.first();
@@ -19,7 +20,7 @@ module.exports = {
             const authorAvatar = message.author.avatarURL({ dynamic: true , size: 2048 , format: "png" })
 
             const Embed = new EmbedBuilder()
-			.setTitle(`**Twój awatar**, **${message.author.username}**`)
+			.setTitle(`**Your Avatar**, **${message.author.username}**`)
 			.setColor(`Blurple`)
 			.setThumbnail(authorAvatar);
 
@@ -28,13 +29,13 @@ module.exports = {
             return
         }
         if (!member) {
-            message.reply("Nie znalazłem takiego użytkownika");
+            message.reply("This user doesn't exist!");
             return
         } else { 
             const mentionedAvatar = member.user.avatarURL({ dynamic: true , size: 2048 , format: "png" })
 
             const Embed = new EmbedBuilder()
-			.setTitle(`**Awatar użytkownika:** **${member.user.username}**`)
+			.setTitle(`**${member.user.username}'s Avatar**`)
 			.setColor(`Blurple`)
 			.setThumbnail(mentionedAvatar);
 

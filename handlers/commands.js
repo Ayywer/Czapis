@@ -2,7 +2,7 @@ const fs = require("fs");
 
 
 module.exports = (client, config) => {
-  console.log("Ładuje Command Handler");
+  console.log("Loading Command Handler...");
 
   fs.readdirSync('./commands/').forEach(dir => {
     const commands = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
@@ -12,7 +12,7 @@ module.exports = (client, config) => {
       if (pull.config.name) {
         client.commands.set(pull.config.name, pull);
       } else {
-        console.log(`Nie mogłem załadować ${file}, brakuje pewnych wartości`)
+        console.log(`I can't load ${file} file, some important values are missing`)
         continue;
       };
 

@@ -2,79 +2,81 @@ const { EmbedBuilder } = require('discord.js');
 const fs = require("fs")
 const config = require('../../config.json');
 
-const update = config.UPDATE
-
 module.exports = {
     config: {
         name: "8ball",
+        description: "Have some questions? Want anwsers? 8Ball have it!",
+        usage: "{prefix}8ball {question}"
     },
     permissions: ["SendMessages",],
-    aliases: ['kula','pytanie'],
+    aliases: [],
     owner: false,
+    requestaccount: false,
+
     run: async (client, message, args, prefix, config,) => {
         function randomIntFromInterval(min, max) { 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }
         const rndInt = randomIntFromInterval(1, 7)
 
-        let pytanie = args[0]
-        if(!pytanie)
+        let question = args[0]
+        if(!question)
         {
-            message.reply("Nie zadałeś mi pytania")
+            message.reply("You didn't gave me a question!")
         } else {
             if(rndInt == 1)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Tak"), 1000)
+                setTimeout(() => msg.edit("Yes"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 2)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Nie"), 1000)
+                setTimeout(() => msg.edit("No"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 3)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Nie wiem"), 1000)
+                setTimeout(() => msg.edit("I don't know"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 4)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Chyba tak"), 1000)
+                setTimeout(() => msg.edit("I think yes"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 5)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Chyba nie"), 1000)
+                setTimeout(() => msg.edit("I think not"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 6)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Raczej tak"), 1000)
+                setTimeout(() => msg.edit("Probably yeah"), 1000)
                 })
                 .catch();
             }
             if(rndInt == 7)
             {
-                message.reply("Myślę...")
+                message.reply("Thinking...")
                 .then(msg => {
-                setTimeout(() => msg.edit("Raczej nie"), 1000)
+                setTimeout(() => msg.edit("Probably nah"), 1000)
                 })
                 .catch();
             }

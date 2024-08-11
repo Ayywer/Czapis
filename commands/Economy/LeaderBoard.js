@@ -7,10 +7,13 @@ const update = config.UPDATE
 module.exports = {
     config: {
         name: "leaderboard",
+        description: "Shows leaderboard. Whos the richest?",
+        usage: "{prefix}leaderboard"
     },
     permissions: ["SendMessages",],
-    aliases: ['lb','tablica','naj'],
+    aliases: [],
     owner: false,
+    requestaccount: true,
     run: async (client, message, args, prefix, config,) => {
         let bank = JSON.parse(fs.readFileSync('././././DB/economy.json'))
         
@@ -21,11 +24,11 @@ module.exports = {
 
         var LBString = "";
         Sorted.forEach(user => {
-            LBString += `${place}. ${client.users.cache.find(u => u.id == user[0])} - ${user[1].bank}$\n`;
+            LBString += `${place}. ${client.users.cache.find(u => u.id == user[0])} - ${user[1].money}$\n`;
         });
 
         var LBEmbed = new EmbedBuilder();
-        LBEmbed.setTitle("**O TO LISTA NAJBOGATSZYCH OSÓB (LICZONE PIENIĄDZE W BANKU)**");
+        LBEmbed.setTitle("**LEADERBOARD**");
         LBEmbed.setDescription(LBString);
         LBEmbed.setColor(`Blurple`);
     

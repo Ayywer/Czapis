@@ -5,5 +5,5 @@ module.exports = {
 };
 
 client.once('ready', async () => {
-  console.log("Gotowy! :D");
+  console.log("Ready!");
 })

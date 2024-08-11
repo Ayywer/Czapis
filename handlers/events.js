@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports = (client) => {
-  console.log("Ładuje Event Handler");
+  console.log("Loading Event Handler");
   
   fs.readdirSync('./events/').forEach(dir => {
 		const events = fs.readdirSync(`./events/${dir}/`).filter(file => file.endsWith('.js'));
@@ -11,7 +11,7 @@ module.exports = (client) => {
 			if (pull.name) {
 				client.events.set(pull.name, pull);
 			} else {
-				console.log(`Nie mogłem załadować ${file}. Brakuje pewnych wartości`)
+				console.log(`I can't load ${file} file, some important values are missing`)
 				continue;
 			}
       

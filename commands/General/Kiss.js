@@ -17,23 +17,23 @@ module.exports = {
         const member = message.mentions.members.first();
 
 		if (!inputMember) {
-            message.reply('Nie podano użytkownika')
+            message.reply('You didnt provide user')
             return
         }
         if (!member) {
-            message.reply("Nie znalazłem takiego użytkownika");
+            message.reply("This user doesn't exist ");
             return
         }
         if(member.id == message.author.id) {
-            message.reply(`Sorki, ale wydaje mi się, że nie możesz tego zrobić ;x`)
+            message.reply(`Sorry, I can't do that`)
             return 
         }
         if(member.id == "1034463864298950736") {
-            message.channel.send(`${message.author.username} pocałował mnie OwO!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
+            message.channel.send(`${message.author.username} kissed me OwO!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
             return 
         }
 
-        message.channel.send(`${message.author.username} pocałował ${member}!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
+        message.channel.send(`${message.author.username} kissed ${member}!\nhttps://tenor.com/view/kitten-kiss-cute-pet-cat-gif-20374133`)
 
     }
 }

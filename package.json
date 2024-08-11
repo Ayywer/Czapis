@@ -1,0 +1,20 @@
+{
+  "name": "czapis",
+  "version": "1.0.0",
+  "description": "Discord Bot For Moderation, Economy and Fun",
+  "main": "index.js",
+  "dependencies": {
+    "bson": "^5.4.0",
+    "busboy": "^1.6.0",
+    "debug": "^4.3.4",
+    "discord-api-types": "^0.37.49",
+    "discord.js": "^14.11.0",
+    "fs": "^0.0.1-security",
+    "tslib": "^2.6.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aywer",
+  "license": "ISC"
+}

@@ -5,10 +5,13 @@ const config = require('../../config.json');
 module.exports = {
     config: {
         name: "ban",
+        description: "You can ban people with this command!",
+        usage: "{prefix}ban @user {reason}"
     },
     permissions: ["SendMessages", "KickMembers", "ModerateMembers"],
-    aliases: ['b','punish','zbanuj','zban'],
+    aliases: [],
     owner: false,
+    requestaccount: false,
     run: async (client, message, args, prefix, config,) => {
 
         const inputMember = args[0];
@@ -16,37 +19,32 @@ module.exports = {
 
         const member = message.mentions.members.first();
 
+        let ErrorEmbed = new EmbedBuilder();
+        ErrorEmbed.setTitle("**Error**");
+        ErrorEmbed.setColor(`Red`);
+
+
 		if (!inputMember) {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Nie podałeś użytkownika!");
-            ErrorEmbed.setColor(`Red`);
+            ErrorEmbed.setDescription("You didn't mention an user!");
             message.reply({ embeds: [ErrorEmbed] })
             return
         }
         if (!member) {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Nie znalazłem takiego użytkownika!");
-            ErrorEmbed.setColor(`Red`);
+            ErrorEmbed.setDescription("I didn't found that user!");
             message.reply({ embeds: [ErrorEmbed] })
             return
         } 
         
         if(member.id == message.author.id) {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Nie możesz samego siebie zbanować 💀");
-            ErrorEmbed.setColor(`Red`);
+
+            ErrorEmbed.setDescription("You can't ban yourself 💀");
             message.reply({ embeds: [ErrorEmbed] })
             return 
         }
 
         if(member.id == "1034463864298950736") {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Nie możesz mnie zbanować 💀");
-            ErrorEmbed.setColor(`Red`);
+
+            ErrorEmbed.setDescription("You can't ban me lol 💀");
             message.reply({ embeds: [ErrorEmbed] })
             return 
         }
@@ -57,7 +55,7 @@ module.exports = {
 
         let BanErrorEmbed = new EmbedBuilder();
         BanErrorEmbed.setTitle("**Error**");
-        BanErrorEmbed.setDescription("Nie możesz zbanować tej osoby");
+        BanErrorEmbed.setDescription("You can't ban this user");
         BanErrorEmbed.setColor(`Red`); 
 
         if (authorPosition < memberPosition) return message.reply({ embeds: [BanErrorEmbed] });
@@ -71,7 +69,7 @@ module.exports = {
 		const menitonedAvatar = baned.user.avatarURL({ dynamic: true , size: 2048 , format: "png" })
 		const memberUsername = baned.user.username;
 
-		if (!inputReason) inputReason = "Nie podano powodu";
+		if (!inputReason) inputReason = "No reason provided";
 
 		const banEmbed = new EmbedBuilder()
 			.setTitle("Impostor! ඞ")

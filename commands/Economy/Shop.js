@@ -7,123 +7,36 @@ const update = config.UPDATE
 module.exports = {
     config: {
         name: "shop",
+        description: "Shows list of all available items to buy in shop!",
+        usage: "{prefix}shop"
     },
     permissions: ["SendMessages",],
-    aliases: ['sklep','s'],
+    aliases: [],
     owner: false,
+    requestaccount: true,
     run: async (client, message, args, prefix, config,) => {
-        let user = JSON.parse(fs.readFileSync('././././DB/account.json'))
-        let bank = JSON.parse(fs.readFileSync('././././DB/economy.json'))
-        let cooldown = JSON.parse(fs.readFileSync('././././DB/cooldowns.json'))
-        let hotstreaks = JSON.parse(fs.readFileSync('././././DB/hotstreaks.json'))
-        //PUMPKIN
-        let pumpkin1 = JSON.parse(fs.readFileSync('././././DB/Pumpkin/Series1/pumpkin1.json'))
-
-        if(!user[message.author.id])
-        {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Nie posiadasz konta, pozwól że utworze je za ciebie!");
-            ErrorEmbed.setColor(`Red`);
-        
-            user[message.author.id] = {
-                level: 1,
-                xp: 0,
-                maxXp: 100,
-                update: update,
-            }
-        
-            fs.writeFileSync('././././DB/account.json', JSON.stringify(user))
-        
-            bank[message.author.id] = {
-                money: 100,
-                bank: 0,
-                token: 0,
-            }
-        
-            fs.writeFileSync('././././DB/economy.json', JSON.stringify(bank))
-        
-            cooldown[message.author.id] = {
-                workcooldown: 0,
-                huntcooldown: 0,
-                dailycooldown:0,
-            }
-        
-            fs.writeFileSync('././././DB/cooldowns.json', JSON.stringify(cooldown))
-        
-            pumpkin1[message.author.id] = {
-                selectedCat: 0,
-                CommonCat: -1,
-                CatBoy: -1,
-                Gato: -1,
-                Nerdie: -1,
-                CoolCat: -1,
-                Catlien: -1,
-                C4ttY: -1,
-                KlMiaun: -1,
-                Ghat: -1,
-                Poopitty: -1,
-                Devilat: -1,
-                BlobCat: -1,
-                Pumpkin: -1,
-                Maxwell: -1,
-                CocainumCat: -1,
-                Czapis: -1
-            }
-        
-            fs.writeFileSync('././././DB/Pumpkin/Series1/pumpkin1.json', JSON.stringify(pumpkin1))
-        
-            hotstreaks[message.author.id] = {
-                cfstreak: 0,
-                spinstreak: 0,
-            }
-        
-            fs.writeFileSync('././././DB/hotstreaks.json', JSON.stringify(hotstreaks))
-        
-            let AccountEmbed = new EmbedBuilder();
-            AccountEmbed.setTitle("**Konto**");
-            AccountEmbed.setDescription("Konto zostało utworzone pomyślnie!");
-            AccountEmbed.setColor(`Blurple`);
-        
-            message.channel.send({ embeds: [ErrorEmbed] })
-            .then(msg => {
-                setTimeout(() => msg.edit({ embeds: [AccountEmbed] }), 500)
-            })
-            .catch();
-        }
-
-        if(user[message.author.id].update < update)
-        {
-            let ErrorEmbed = new EmbedBuilder();
-            ErrorEmbed.setTitle("**Error**");
-            ErrorEmbed.setDescription("Posiadasz niezaaktualizowane konto, Aktualizacja •••");
-            ErrorEmbed.setColor(`Red`);
-
-            let UpdateEmbed = new EmbedBuilder();
-            UpdateEmbed.setTitle("**Aktualizacja**");
-            UpdateEmbed.setDescription("Konto zostało zaaktualizowane pomyślnie!");
-            UpdateEmbed.setColor(`Blurple`);
-
-            message.reply({ embeds: [ErrorEmbed] })
-            .then(msg => {
-                setTimeout(() => msg.edit({ embeds: [UpdateEmbed] }), 1000)
-            })
-            .catch();
-        }
-
+        let items = JSON.parse(fs.readFileSync('././././DB/items.json'))
         let item = args[0];
 
         if(!item)
         {
             let ShopEmbed = new EmbedBuilder();
             ShopEmbed.setTitle("**SHOP**");
-            ShopEmbed.setDescription(`**O to lista wszystkich przedmiotów możliwych do kupienia w sklepie!**`);
-            ShopEmbed.addFields(
+            ShopEmbed.setDescription(`**List of every available items to buy!**`);
+            
+            var ItemAmount = 1 //If you are adding new items - increase this value
+            
+            for (let x = 1; x <= ItemAmount; x++) {
+
+                ShopEmbed.addFields(
                     {
-                    name: "Token :flower_playing_cards:",
-                    value: "Token który pozwala ci grać w gry hazardowe. Koszt: 1500$",
+                    name: `${items[x].name}`,
+                    value: `${items[x].desc}`,
                     },
                 );
+                
+            }
+
             ShopEmbed.setColor(`Blurple`);
             message.channel.send({embeds: [ShopEmbed]})
         } else {
