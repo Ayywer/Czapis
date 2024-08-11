@@ -22,7 +22,7 @@ what are you doing.
 
 Handlers are for handling (obviously) commands in folders. 
 This line: let pull = require(`../commands/${dir}/${file}`);
-are set to read commands in folders. So if you want to make your own command, make sure it is in some folder. 
+is set to read commands in folders. So if you want to make your own command, make sure it is in some folder. 
 
 Events are just events that happens in console or in bot. Client Events are for bot, Creating Events are for creating inside discord.
 These are fairly obvious, and easy to edit.
@@ -30,8 +30,11 @@ These are fairly obvious, and easy to edit.
 ## How to use it?
 
 1.Make sure you have latest Node installed: [here](https://nodejs.org/en)
-2.While at \Czapis folder, enter in console/terminal: node index.js
-3.Setup your bot's token, prefix if you want and you good to go!
+
+2.Setup your bot's token and customize your prefix.
+
+3.While at \Czapis folder, enter in console/terminal: node index.js and you good to go!
+
 In theory, this should work fine (thats the way I use).  
 
 ## How to customize it?
@@ -63,5 +66,6 @@ Glad if I helped you, m8!
 If you have any problems - add me on discord: ayywer
 
 Thank you for checking my stuff, Cya ^^
+
 ~ Aywer
 
