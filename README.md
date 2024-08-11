@@ -42,7 +42,8 @@ In theory, this should work fine (thats the way I use).
 Well, you NEED to understand javascript and discord.js. If you messd up something, that's on you
 You can add folders for commands as well as new commands. Just follow the main structure of command.
 
-- Customize Economy
+Customize Economy:
+  
 You can add new values, or change existing ones. Its very simple and beginner friendly.
 Economy uses Account system, where every user has it's own account, where bot stores level, exp, money and tokens.
 Every customizable command has comments where you can edit stuff. Its really simple and easy to understand, trust me.
